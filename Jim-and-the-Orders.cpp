@@ -13,8 +13,23 @@ vector<string> split(const string &);
  * The function accepts 2D_INTEGER_ARRAY orders as parameter.
  */
 
-vector<int> jimOrders(vector<vector<int>> orders) {
-    vector<int> result {};
+vector<int> jimOrders(vector<vector<int>> orders)
+{
+    std::vector<int> result;
+    std::multimap<int, int> mp;
+    int sum = 0;
+    
+    for (int i = 0; i < orders.size(); ++i)
+    {
+        sum = orders[i][0] + orders[i][1];
+        mp.insert(make_pair(sum, i+1));
+    }
+    
+    for (auto it = mp.begin(); it != mp.end(); ++it)
+    {
+        result.push_back(it->second);
+    }
+    
     return result;
 }
 
@@ -99,4 +114,3 @@ vector<string> split(const string &str) {
 
     return tokens;
 }
-
