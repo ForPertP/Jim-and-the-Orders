@@ -14,7 +14,8 @@ vector<string> split(const string &);
  */
 
 vector<int> jimOrders(vector<vector<int>> orders) {
-
+    vector<int> result {};
+    return result;
 }
 
 int main()
