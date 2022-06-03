@@ -25,11 +25,11 @@ vector<int> jimOrders(vector<vector<int>> orders)
         mp.insert(make_pair(sum, i+1));
     }
     
-    for (auto it = mp.begin(); it != mp.end(); ++it)
+    for (const auto& m : mp)
     {
-        result.push_back(it->second);
+        result.push_back(m.second);
     }
-    
+
     return result;
 }
 
