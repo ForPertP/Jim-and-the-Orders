@@ -15,6 +15,27 @@ vector<string> split(const string &);
 
 vector<int> jimOrders(vector<vector<int>> orders)
 {
+    vector<pair<int,int>> v;
+    
+    for(int i=0;i<orders.size();i++)
+    {
+        v.push_back({orders[i][0]+orders[i][1], i+1});
+    }
+
+    sort(v.begin(), v.end());
+
+    vector<int> ans;
+    for(auto &p : v)
+    {
+        ans.push_back(p.second);
+    }
+
+    return ans;
+}
+
+
+vector<int> jimOrders3(vector<vector<int>> orders)
+{
     std::vector<int> result;
     std::multimap<int, int> mp;
     int sum = 0;
