@@ -40,23 +40,21 @@ vector<int> jimOrders2(vector<vector<int>> orders) {
 }
 
 
-vector<int> jimOrders3(vector<vector<int>> orders)
+std::vector<int> jimOrders3(const std::vector<std::vector<int>>& orders)
 {
     std::vector<int> result;
     std::multimap<int, int> mp;
-    int sum = 0;
-    
-    for (int i = 0; i < orders.size(); ++i)
+
+    for (size_t i = 0; i < orders.size(); ++i)
     {
-        sum = orders[i][0] + orders[i][1];
-        mp.insert(make_pair(sum, i+1));
+        int totalTime = orders[i][0] + orders[i][1];
+        mp.emplace(totalTime, i + 1);
     }
-    
-    for (const auto& m : mp)
+
+    for (const auto& [time, index] : mp)
     {
-        result.push_back(m.second);
+        result.push_back(index);
     }
 
     return result;
 }
-
