@@ -58,3 +58,26 @@ std::vector<int> jimOrders3(const std::vector<std::vector<int>>& orders)
 
     return result;
 }
+
+
+vector<int> jimOrders4(vector<vector<int>> orders)
+{
+    priority_queue<
+        pair<int,int>,
+        vector<pair<int,int>>,
+        greater<pair<int,int>>
+    > pq;
+
+    for(int i = 0; i < orders.size(); i++)
+        pq.push({orders[i][0] + orders[i][1], i + 1});
+
+    vector<int> ans;
+
+    while(!pq.empty())
+    {
+        ans.push_back(pq.top().second);
+        pq.pop();
+    }
+
+    return ans;
+}
