@@ -11,3 +11,17 @@ using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 using System.Text;
 using System;
+
+class Result
+{
+
+    /*
+     * Complete the 'jimOrders' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts 2D_INTEGER_ARRAY orders as parameter.
+     */
+
+    public static List<int> jimOrders(List<List<int>> orders)
+    {}
+}
