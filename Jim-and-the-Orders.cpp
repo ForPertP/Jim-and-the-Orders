@@ -56,8 +56,7 @@ vector<int> jimOrders2(vector<vector<int>> orders) {
 
 std::vector<int> jimOrders3(vector<vector<int>> orders)
 {
-    std::vector<int> result;
-    std::multimap<int, int> mp;
+    multimap<int, int> mp;
 
     for (size_t i = 0; i < orders.size(); ++i)
     {
@@ -65,12 +64,14 @@ std::vector<int> jimOrders3(vector<vector<int>> orders)
         mp.emplace(totalTime, i + 1);
     }
 
+    vector<int> ans;
+
     for (const auto& [time, index] : mp)
     {
-        result.push_back(index);
+        ans.push_back(index);
     }
 
-    return result;
+    return ans;
 }
 
 
