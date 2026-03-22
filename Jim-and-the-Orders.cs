@@ -23,7 +23,23 @@ class Result
      */
 
     public static List<int> jimOrders(List<List<int>> orders)
-    {}
+    {
+        List<(int serve, int id)> list = new List<(int,int)>();
+
+        for(int i = 0; i < orders.Count; i++)
+            list.Add((orders[i][0] + orders[i][1], i + 1));
+
+        list.Sort((a,b) => {
+            if(a.serve == b.serve) return a.id.CompareTo(b.id);
+            return a.serve.CompareTo(b.serve);
+        });
+
+        List<int> result = new List<int>();
+        foreach(var x in list)
+            result.Add(x.id);
+
+        return result;
+    }
 }
 
 
