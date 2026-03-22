@@ -40,6 +40,27 @@ class Result
 
         return result;
     }
+    
+    
+    public static List<int> jimOrders4(List<List<int>> orders)
+    {
+        var pq = new PriorityQueue<int, (int totalTime, int index)>();
+
+        for (int i = 0; i < orders.Count; i++)
+        {
+            int totalTime = orders[i][0] + orders[i][1];
+            pq.Enqueue(i + 1, (totalTime, i + 1));
+        }
+
+        var result = new List<int>();
+
+        while (pq.Count > 0)
+        {
+            result.Add(pq.Dequeue());
+        }
+
+        return result;
+    }    
 }
 
 
