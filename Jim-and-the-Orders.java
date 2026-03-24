@@ -19,4 +19,22 @@ class Result {
      * The function is expected to return an INTEGER_ARRAY.
      * The function accepts 2D_INTEGER_ARRAY orders as parameter.
      */
+
+    public static List<Integer> jimOrders(List<List<Integer>> orders) {
+        List<int[]> list = new ArrayList<>();
+
+        for(int i = 0; i < orders.size(); i++)
+            list.add(new int[]{orders.get(i).get(0) + orders.get(i).get(1), i + 1});
+
+        Collections.sort(list, (a,b) -> {
+            if(a[0] == b[0]) return a[1] - b[1];
+            return a[0] - b[0];
+        });
+
+        List<Integer> result = new ArrayList<>();
+        for(int[] x : list)
+            result.add(x[1]);
+
+        return result;
+    }    
 }
