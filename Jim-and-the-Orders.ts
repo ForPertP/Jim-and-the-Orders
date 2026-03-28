@@ -22,3 +22,14 @@ process.stdin.on('end', function(): void {
 function readLine(): string {
     return inputLines[currentLine++];
 }
+
+
+
+/*
+ * Complete the 'jimOrders' function below.
+ *
+ * The function is expected to return an INTEGER_ARRAY.
+ * The function accepts 2D_INTEGER_ARRAY orders as parameter.
+ */
+
+function jimOrders(orders: number[][]): number[] {}
