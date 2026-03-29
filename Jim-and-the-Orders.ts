@@ -24,6 +24,13 @@ function readLine(): string {
 }
 
 
+function jimOrders(orders: number[][]): number[] {
+    return orders
+        .map((order, index) => [order[0] + order[1], index + 1])
+        .sort((a, b) => a[0] - b[0] || a[1] - b[1])
+        .map(item => item[1]);
+}
+
 
 /*
  * Complete the 'jimOrders' function below.
