@@ -23,6 +23,12 @@ function readLine(): string {
     return inputLines[currentLine++];
 }
 
+/*
+ * Complete the 'jimOrders' function below.
+ *
+ * The function is expected to return an INTEGER_ARRAY.
+ * The function accepts 2D_INTEGER_ARRAY orders as parameter.
+ */
 
 function jimOrders(orders: number[][]): number[] {
     return orders
@@ -32,13 +38,7 @@ function jimOrders(orders: number[][]): number[] {
 }
 
 
-/*
- * Complete the 'jimOrders' function below.
- *
- * The function is expected to return an INTEGER_ARRAY.
- * The function accepts 2D_INTEGER_ARRAY orders as parameter.
- */
-function jimOrders(orders: number[][]): number[] {
+function jimOrders2(orders: number[][]): number[] {
     const deliveryTimes = orders.map((order, index) => {
         const totalTime = order[0] + order[1];
         const orderId = index + 1;
@@ -53,4 +53,23 @@ function jimOrders(orders: number[][]): number[] {
     });
 
     return deliveryTimes.map(item => item[1]);
+}
+
+
+function main() {
+    const ws: WriteStream = createWriteStream(process.env['OUTPUT_PATH']);
+
+    const n: number = parseInt(readLine().trim(), 10);
+
+    let orders: number[][] = Array(n);
+
+    for (let i: number = 0; i < n; i++) {
+        orders[i] = readLine().replace(/\s+$/g, '').split(' ').map(ordersTemp => parseInt(ordersTemp, 10));
+    }
+
+    const result: number[] = jimOrders(orders);
+
+    ws.write(result.join(' ') + '\n');
+
+    ws.end();
 }
