@@ -18,6 +18,10 @@ import (
  */
 
 func jimOrders(orders [][]int32) []int32 {
+   type orderInfo struct {
+        totalTime int32
+        orderID   int32
+    }    
 }
 
 
