@@ -32,22 +32,23 @@ vector<int> jimOrders(vector<vector<int>> orders)
 
 
 vector<int> jimOrders2(vector<vector<int>> orders) {
-    vector<pair<int,int>> v;
+    vector<pair<int, int>> v;
 
     for (int i = 0; i < orders.size(); i++) {
         int serve = orders[i][0] + orders[i][1];
-        v.push_back({serve, i+1});
+        v.push_back({serve, i + 1});
     }
 
-    sort(v.begin(), v.end(), [](pair<int,int> a, pair<int,int> b){
-        if(a.first == b.first)
+    sort(v.begin(), v.end(), [](pair<int, int> a, pair<int, int> b) {
+        if (a.first == b.first)
             return a.second < b.second;
+
         return a.first < b.first;
     });
 
     vector<int> ans;
-    
-    for(const auto &p : v)
+
+    for (const auto& p : v)
         ans.push_back(p.second);
 
     return ans;
