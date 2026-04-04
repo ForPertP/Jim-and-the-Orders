@@ -22,6 +22,15 @@ func jimOrders(orders [][]int32) []int32 {
         totalTime int32
         orderID   int32
     }    
+
+    arr := make([]orderInfo, len(orders))
+
+    for i, order := range orders {
+        arr[i] = orderInfo{
+            totalTime: order[0] + order[1],
+            orderID:   int32(i + 1),
+        }
+    }    
 }
 
 
