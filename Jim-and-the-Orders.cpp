@@ -34,7 +34,7 @@ vector<int> jimOrders(vector<vector<int>> orders)
 vector<int> jimOrders2(vector<vector<int>> orders) {
     vector<pair<int,int>> v;
 
-    for(int i = 0; i < orders.size(); i++) {
+    for (int i = 0; i < orders.size(); i++) {
         int serve = orders[i][0] + orders[i][1];
         v.push_back({serve, i+1});
     }
