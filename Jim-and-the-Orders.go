@@ -31,6 +31,14 @@ func jimOrders(orders [][]int32) []int32 {
             orderID:   int32(i + 1),
         }
     }    
+
+    sort.Slice(arr, func(i, j int) bool {
+        if arr[i].totalTime != arr[j].totalTime {
+            return arr[i].totalTime < arr[j].totalTime
+        }
+        return arr[i].orderID < arr[j].orderID
+    })
+    
 }
 
 
