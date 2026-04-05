@@ -18,10 +18,10 @@ import (
  */
 
 func jimOrders(orders [][]int32) []int32 {
-   type orderInfo struct {
+    type orderInfo struct {
         totalTime int32
         orderID   int32
-    }    
+    }
 
     arr := make([]orderInfo, len(orders))
 
@@ -30,7 +30,7 @@ func jimOrders(orders [][]int32) []int32 {
             totalTime: order[0] + order[1],
             orderID:   int32(i + 1),
         }
-    }    
+    }
 
     sort.Slice(arr, func(i, j int) bool {
         if arr[i].totalTime != arr[j].totalTime {
@@ -38,7 +38,13 @@ func jimOrders(orders [][]int32) []int32 {
         }
         return arr[i].orderID < arr[j].orderID
     })
-    
+
+    result := make([]int32, len(arr))
+    for i, v := range arr {
+        result[i] = v.orderID
+    }
+
+    return result
 }
 
 
@@ -88,4 +94,19 @@ func main() {
     fmt.Fprintf(writer, "\n")
 
     writer.Flush()
+}
+
+func readLine(reader *bufio.Reader) string {
+    str, _, err := reader.ReadLine()
+    if err == io.EOF {
+        return ""
+    }
+
+    return strings.TrimRight(string(str), "\r\n")
+}
+
+func checkError(err error) {
+    if err != nil {
+        panic(err)
+    }
 }
